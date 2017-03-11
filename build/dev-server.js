@@ -9,10 +9,11 @@ var opn = require('opn')
 var path = require('path')
 var express = require('express')
 var appData = require('../data.json');
+var app=express();
 var seller = appData.seller;
 var goods = appData.goods;
 var ratings = appData.ratings;
-var apiRoutes = express.Route();
+var apiRoutes = express.Router();
 var webpack = require('webpack')
 var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = process.env.NODE_ENV === 'testing'
@@ -26,30 +27,30 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 // Define HTTP proxies to your custom API backend
 // https://github.com/chimurai/http-proxy-middleware
 var proxyTable = config.dev.proxyTable
-var app = express()
 var compiler = webpack(webpackConfig)
-apiRoutes.get('/seller', function(req, res){
+apiRoutes.get('/seller', function(req, res) {
   res.json({
     errno: 0,
     data: seller
   });
 });
 
-apiRoutes.get('/goods', function(req, res){
+apiRoutes.get('/goods', function(req, res) {
   res.json({
     errno: 0,
     data: goods
   });
 });
 
-apiRoutes.get('/ratings', function(req, res){
+apiRoutes.get('/ratings', function(req, res) {
   res.json({
     errno: 0,
     data: ratings
   });
 });
+
 app.use('/api',apiRoutes);
-var compiler = webpack(webpackConfig)
+
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
   quiet: true
