@@ -2,10 +2,17 @@
   <div id="app">
     <v-header></v-header>
     <div class="tab">
-      <div class="tab-item">商品</div>
-      <div class="tab-item">评论</div>
-      <div class="tab-item">商家</div>
+      <div class="tab-item">
+        <router-link to="/goods">商品</router-link>
+      </div>
+      <div class="tab-item">
+        <router-link to="/ratings">评论</router-link>
+      </div>
+      <div class="tab-item">
+        <router-link to="/seller">商家</router-link>
+      </div>
     </div>
+    <router-view></router-view>
     <div class="content">
       这是内容页
     </div>
@@ -14,10 +21,11 @@
 
 <script>
   import header from './components/header/header.vue'
-
+  import goods from './components/goods/goods.vue'
   export default {
     components: {
-      'v-header': header
+      'v-header': header,
+      'goods': goods
     }
   }
 </script>
