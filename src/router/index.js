@@ -10,17 +10,14 @@ export default new Router({
   routes: [
     {
       path: '/goods',
-      name: 'goods',
       component: goods
     },
     {
       path: '/ratings',
-      name: 'ratings',
       component: ratings
     },
     {
       path: '/seller',
-      name: 'seller',
       component: seller
     }
   ]
