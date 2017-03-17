@@ -1,7 +1,8 @@
 <template>
   <div class="star star-48">
+    sss
     <span v-for="itemClass in itemClasses" class="star-item" :class="itemClass" track-by="$index">
-      {{itemClass}}
+      111
     </span>
   </div>
 </template>
@@ -63,13 +64,13 @@
           margin-right: 0;
          }
         &.on {
-          background-image: url("star48_on@3x.png");
+          background-image: url("./star48_on@3x.png");
          }
         &.half {
-           background-image: url("star48_half@3x.png");
+           background-image: url("./star48_half@3x.png");
          }
         &.off {
-           background-image: url("star48_off@3x.png");
+           background-image: url("./star48_off@3x.png");
          }
       }
      }
