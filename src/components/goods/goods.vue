@@ -1,6 +1,15 @@
 <template>
   <div class="goods">
-    <div class="menu-wrapper"></div>
+    <div class="menu-wrapper">
+    <ul>
+      <li v-for="item in goods" class="menu-item">
+        <span class="text">
+          <span v-show="item.type>0" class="icon"></span>
+          {{item.name}}
+        </span>
+      </li>
+    </ul>
+    </div>
     <div class="foods-wrapper"></div>
 
   </div>

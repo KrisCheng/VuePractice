@@ -10,6 +10,31 @@
     flex: 0 0 80px;
     width: 80px;
     background-color: #f3f5f7;
+    .menu-item{
+      display: table;
+      height: 54px;
+      width: 56px;
+      line-height: 14px;
+      padding: 12px;
+      .text{
+        display: table-cell;
+        width: 56px;
+        vertical-align: middle;
+        font-size: 12px;
+        border: 1px solid rgba(7,17,27,0.1);
+        .icon{
+          display: inline-block;
+          width: 12px;
+          height: 12px;
+          vertical-align: top;
+          margin-right: 2px;
+          background-size: 16px;
+          background-repeat: no-repeat;
+          background-image: url("./decrease_4@3x.png");
+          background-size: 12px 12px;
+        }
+      }
+    }
   }
   .foods-wrapper{
 
