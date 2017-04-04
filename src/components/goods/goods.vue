@@ -1,6 +1,6 @@
 <template>
   <div class="goods">
-    <div class="menu-wrapper">
+    <div class="menu-wrapper" id="menu-wrapper">
     <ul>
       <li v-for="item in goods" class="menu-item">
         <span class="text">
@@ -10,7 +10,7 @@
       </li>
     </ul>
     </div>
-    <div class="foods-wrapper">
+    <div class="foods-wrapper" id="foods-wrapper">
       <ul>
         <li v-for="item in goods" class="food-list">
           <h1 class="title">{{item.name}}</h1>
@@ -40,6 +40,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import BScroll from 'better-scroll';
   const ERR_OK = 0;
   export default{
     props:{
@@ -57,9 +58,17 @@
         response = response.body;
         if(response.errno === ERR_OK){
           this.goods = response.data;
-          console.log(this.goods);
+          this.$nextTick(() => {
+            this._initScroll();
+          });
         }
       })
+    },
+    methods: {
+      _initScroll() {
+        this.menuScroll = new BScroll(document.getElementById('menu-wrapper'));
+        this.foodsScroll = new BScroll(document.getElementById('foods-wrapper'));
+      }
     }
   }
 </script>
