@@ -7,7 +7,6 @@
   width:100%;
   overflow: hidden;
   .menu-wrapper{
-    //margin-top: 5px;
     flex: 0 0 80px;
     width: 80px;
     background-color: #f3f5f7;
@@ -17,6 +16,15 @@
       width: 56px;
       line-height: 14px;
       padding: 12px;
+      &.current{
+        position: relative;
+        z-index: 10;
+        background: white;
+        .text{
+          border: none;
+          font-weight: 700;
+        }
+      }
       .text{
         display: table-cell;
         width: 56px;
@@ -40,7 +48,6 @@
   .foods-wrapper{
     flex:1;
     .title{
-      //margin-top: 5px;
       padding-left:14px;
       height: 26px;
       line-height: 26px;
