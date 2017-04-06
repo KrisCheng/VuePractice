@@ -6,6 +6,7 @@
           <div class="logo">
             <span class="el-icon-menu"></span>
           </div>
+          
         </div>
         <div class="price">${{totalPrice}}</div>
         <div class="desc">另需配送费${{deliveryPrice}}</div>
