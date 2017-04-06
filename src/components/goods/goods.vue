@@ -2,7 +2,7 @@
   <div class="goods">
     <div class="menu-wrapper" id="menu-wrapper">
     <ul>
-      <li v-for="(item,$index,$event) in goods" class="menu-item"  :class="{'current':currentIndex===$index}"
+      <li v-for="(item,$index,$event) in goods" class="menu-item" :class="{'current':currentIndex===$index}"
           @click="selectMenu($index,$event)">
         <span class="text">
           <span v-show="item.type>0" class="icon"></span>
@@ -31,6 +31,9 @@
                 <span class="now">${{food.price}}</span>
                 <span class="old" v-show="food.oldPrice">${{food.oldPrice}}</span>
               </div>
+              <div class="cartcontorl-wrapper">
+                <cartcontrol :food="food"></cartcontrol>
+              </div>
             </div>
           </li>
         </ul>
@@ -44,6 +47,7 @@
 <script type="text/ecmascript-6">
   import BScroll from 'better-scroll';
   import shopcart from '../../components/shopcart/shopcart'
+  import cartcontrol from '../../components/cartcontrol/cartcontrol'
 
   const ERR_OK = 0;
   export default{
@@ -112,6 +116,7 @@
           probeType: 3
         });
         this.foodsScroll.on('scroll', (pos) => {
+          click: true,
           this.scrollY = Math.abs(Math.round(pos.y));
         })
       },
@@ -127,7 +132,8 @@
       }
     },
     components: {
-      shopcart
+      shopcart,
+      cartcontrol
     }
   }
 </script>
