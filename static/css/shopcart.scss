@@ -28,14 +28,35 @@
           height: 100%;
           border-radius: 50%;
           background: #2b3c3c;
+          text-align: center;
+          &.highlight{
+            background: rgb(0,160,220);
+          }
           .el-icon-menu{
-            padding-left: 10px;
             line-height: 44px;
             text-align: center;
             font-size: 24px;
             color: #80858a;
+            &.highlight{
+              color: #fff;
+            }
           }
         }
+      }
+      .num{
+        position: absolute;
+        top:0;
+        right:0;
+        width: 24px;
+        height: 16px;
+        line-height: 16px;
+        text-align: center;
+        border-radius: 16px;
+        font-size: 9px;
+        font-weight: 700;
+        color: white;
+        background-color: red;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
       }
       .price{
         display: inline-block;
@@ -48,6 +69,9 @@
         font-size: 16px;
         font-weight: 700;
         color:rgba(255,255,255,0.4);
+        &.highlight{
+          color: white;
+        }
       }
       .desc{
         display: inline-block;
@@ -70,6 +94,13 @@
         color:rgba(255,255,255,0.4);
         font-weight: 700;
         background: #2b333b;
+        &.not-enough{
+          background: #2b333b;
+        }
+        &.enough{
+          background: #00b43c;
+          color: white;
+        }
       }
     }
   }

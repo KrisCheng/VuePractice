@@ -3,17 +3,17 @@
     <div class="content">
       <div class="content-left">
         <div class="logo-wrapper">
-          <div class="logo">
-            <span class="el-icon-menu"></span>
+          <div class="logo" :class="{'highlight':totalCount>0}">
+            <span class="el-icon-menu" :class="{'highlight':totalCount>0}"></span>
           </div>
-          
+          <div class="num" v-show="totalCount>0">{{totalCount}}</div>
         </div>
-        <div class="price">${{totalPrice}}</div>
+        <div class="price" :class="{'highlight':totalPrice>0}">${{totalPrice}}</div>
         <div class="desc">另需配送费${{deliveryPrice}}</div>
       </div>
       <div class="content-right">
-        <div class="pay">
-          ${{minPrice}}起送
+        <div class="pay" :class="payClass">
+          {{payDesc}}
         </div>
       </div>
     </div>
@@ -53,6 +53,23 @@
           count += food.count;
         });
         return count;
+      },
+      payDesc(){
+        if(this.totalPrice === 0){
+          return `$${this.minPrice}元起送`;
+        }else if(this.totalPrice < this.minPrice){
+          let diff = this.minPrice - this.totalPrice;
+          return `还差$${diff}元起送`;
+        }
+        else{
+          return '去结算';
+        }
+      },
+      payClass(){
+        if(this.totalPrice < this.minPrice){
+          return 'not-enough';
+        }
+        return 'enough';
       }
     }
   };
