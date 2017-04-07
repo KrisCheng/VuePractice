@@ -1,6 +1,6 @@
 # vue-practice
 
-> A Vue.js project
+> A Vue.js(2.0) project (Simulated from 饿了么).
 
 ## Build Setup
 
