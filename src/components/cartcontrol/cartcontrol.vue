@@ -21,12 +21,13 @@
       }
     },
     methods:{
-      addCart(){
+      addCart(event){
           if (!this.food.count) {
             Vue.set(this.food,'count',1);
           } else {
             this.food.count++;
           }
+        this.$emit('add', event.target);
       },
       decreaseCart(){
         this.food.count--;
