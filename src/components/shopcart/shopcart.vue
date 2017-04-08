@@ -1,6 +1,7 @@
 <template>
+  <div>
   <div class="shopcart">
-    <div class="content">
+    <div class="content" @click="toggleList">
       <div class="content-left">
         <div class="logo-wrapper">
           <div class="logo" :class="{'highlight':totalCount>0}">
@@ -12,7 +13,7 @@
         <div class="desc">另需配送费${{deliveryPrice}}</div>
       </div>
       <div class="content-right">
-        <div class="pay" :class="payClass">
+        <div class="pay" :class="payClass" @click.stop.prevent="pay">
           {{payDesc}}
         </div>
       </div>
@@ -26,11 +27,37 @@
       </transition>
       </div>
     </div>
+    <transition name="fold">
+    <div class="shopcart-list" v-show="listShow">
+      <div class="list-header">
+        <h1 class="title">购物车</h1>
+        <span class="empty" @click="empty">清空</span>
+      </div>
+      <div class="list-content" id="listContent">
+        <ul>
+          <li class="food" v-for="food in selectFoods">
+            <span class="name">{{food.name}}</span>
+            <div class="price">
+              <span>${{food.price*food.count}}</span>
+            </div>
+            <div class="cartcontrol-wrapper">
+              <cartcontrol :food="food"></cartcontrol>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </transition>
+  </div>
+  <transition name="fade">
+  <div class="list-mask" @click="hideList" v-show="listShow"></div>
+  </transition>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import cartcontrol from '../../components/cartcontrol/cartcontrol';
+  import BScroll from 'better-scroll';
   export default{
     props: {
       selectFoods: {
@@ -67,7 +94,8 @@
             show: false
           }
         ],
-        dropBalls: []
+        dropBalls: [],
+        fold:true
       };
     },
     computed: {
@@ -101,6 +129,25 @@
           return 'not-enough';
         }
         return 'enough';
+      },
+      listShow(){
+        if (!(this.totalCount > 0)) {
+          this.fold = true;
+          return false;
+        }
+        let show = !this.fold;
+        if (show) {
+          this.$nextTick(()=> {
+            if (!this.scroll) {
+              this.scroll = new BScroll(document.getElementById('listContent'), {
+                click: true
+              });
+            } else {
+              this.scroll.refresh();
+            }
+          });
+          return show;
+        }
       }
     },
     methods: {
@@ -151,12 +198,32 @@
           ball.show = false;
           el.style.display = 'none';
         }
+      },
+      toggleList(){
+        if (!this.totalCount) {
+          return;
+        }
+        this.fold = !this.fold;
+      },
+      empty(){
+        this.selectFoods.forEach((food) => {
+          food.count = 0;
+        });
+      },
+      hideList(){
+        this.fold = true;
+      },
+      pay(){
+        if (this.totalPrice < this.minPrice) {
+          return;
+        }
+        window.alert('快去支付吧!');
       }
     },
     components: {
       cartcontrol
     }
-  };
+  }
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
