@@ -1,10 +1,18 @@
-.food{
+.food {
   position: fixed;
-  left:0;
-  top:0;
+  left: 0;
+  top: 0;
   bottom: 48px;
   z-index: 10;
   width: 100%;
   background: white;
-
+  transition: all 0.2s linear;
+  &.move-transition {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  &.move-enter, &.move-leave-active {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
 }
