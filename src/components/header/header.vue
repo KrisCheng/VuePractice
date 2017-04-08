@@ -42,9 +42,8 @@
             <div class="text">优惠信息</div>
             <div class="line"></div>
           </div>
-          <ul v-if="seller.supports" class="supports">
+          <ul v-if="seller.supports" class="support">
             <li class="support-item" v-for="item in seller.supports">
-            <span class="icon"></span>
             <span class="text">
               {{item.description}}
             </span>

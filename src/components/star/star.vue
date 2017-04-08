@@ -1,3 +1,4 @@
+<!--a failed component-->
 <template>
   <div class="star star-48">
     sss
