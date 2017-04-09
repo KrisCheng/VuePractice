@@ -18,7 +18,6 @@
           <span class="now"><span class="tag">$</span>{{food.price}}</span>
           <span class="old" v-show="food.oldPrice">${{food.oldPrice}}</span>
         </div>
-      </div>
       <div class="cartcontrol-wrapper">
         <cartcontrol :food="food"></cartcontrol>
       </div>
@@ -28,6 +27,12 @@
       </div>
       </transition>
     </div>
+    <split v-show="food.info"></split>
+    <div class="info" v-show="food.info">
+      <h1 class="title">商品介绍</h1>
+      <p class="text">{{food.info}}</p>
+    </div>
+  </div>
   </div>
   </transition>
 </template>
@@ -36,6 +41,7 @@
   import BScroll from 'better-scroll'
   import Vue from 'vue'
   import cartcontrol from '../../components/cartcontrol/cartcontrol'
+  import split from '../../components/split/split'
 
   export default {
     props:{
@@ -70,7 +76,8 @@
       }
     },
     components:{
-      cartcontrol
+      cartcontrol,
+      split
     }
   };
 </script>
