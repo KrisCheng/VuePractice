@@ -119,15 +119,59 @@
         color:rgb(77,85,93) ;
       }
     }
-    .rating{
+    .rating {
       padding-top: 18px;
-      .title{
+      .title {
         line-height: 14px;
         font-size: 14px;
         margin-left: 16px;
-        color:rgb(7,17,27);
+        color: rgb(7, 17, 27);
       }
-
+      .rating-wrapper {
+        padding: 0 18px;
+        .rating-item {
+          position: relative;
+          padding: 16px 0;
+          border-bottom: 1px solid rgba(7, 17, 27, 0.1);
+          .user {
+            position: absolute;
+            right: 0;
+            top: 16px;
+            line-height: 12px;
+            font-size: 0;
+            .name {
+              display: inline-block;
+              margin-right: 6px;
+              vertical-align: top;
+              font-size: 10px;
+              color: rgb(147, 153, 159);
+            }
+            .avatar {
+              border-radius: 50%;
+            }
+          }
+          .time {
+            margin-bottom: 6px;
+            line-height: 12px;
+            font-size: 10px;
+            color: rgb(147, 153, 159);
+          }
+          .text {
+            line-height: 16px;
+            font-size: 12px;
+            color: rgb(7, 17, 27);
+            .fa-thumbs-up {
+              font-size: 12px;
+              color: rgb(0,160,220);
+            }
+            .fa-thumbs-down {
+              font-size: 12px;
+              color: rgb(143,153,159);
+              
+            }
+          }
+        }
+      }
     }
   }
 }
