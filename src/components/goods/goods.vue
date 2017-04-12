@@ -49,7 +49,7 @@
 
 <script type="text/ecmascript-6">
   import BScroll from 'better-scroll'
-  import shopcart from '../../components/shopcart/shopcart'
+  import shopcart from '../shopcart/shopcart'
   import cartcontrol from '../../components/cartcontrol/cartcontrol'
   import food from '../../components/food/food'
 
