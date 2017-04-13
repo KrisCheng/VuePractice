@@ -5,7 +5,7 @@
       <div class="content-left">
         <div class="logo-wrapper">
           <div class="logo" :class="{'highlight':totalCount>0}">
-            <span class="el-icon-menu" :class="{'highlight':totalCount>0}"></span>
+            <span class="fa fa-shopping-cart" :class="{'highlight':totalCount>0}"></span>
           </div>
           <div class="num" v-show="totalCount>0">{{totalCount}}</div>
         </div>
@@ -227,5 +227,6 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
+  @import "../../../static/css/font-awesome.min.css";
   @import "../../../static/css/shopcart.scss";
 </style>
