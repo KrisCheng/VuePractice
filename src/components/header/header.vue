@@ -35,7 +35,7 @@
         <div class="detail-main">
           <h1 class="name">{{seller.name}}</h1>
           <div class="star-wrapper">
-            <!--<star :size="48" :score="seller.score"></star>-->
+            <star :size="48" :score=0></star>
           </div>
           <div class="title">
             <div class="line"></div>
@@ -60,7 +60,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import star from '../star/star'
+  import star from '../../components/star/star'
   export default{
     props: {
       seller: {
