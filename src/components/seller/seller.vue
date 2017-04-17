@@ -28,6 +28,10 @@
             </div>
           </li>
         </ul>
+        <div class="favorite" @click="toggleFavorite">
+          <span class="fa fa-heart" :class="{'active':favorite}"></span>
+          <span class="text">{{favoriteText}}</span>
+        </div>
       </div>
       <split></split>
       <div class="bulletin">
@@ -55,6 +59,13 @@
           </ul>
         </div>
       </div>
+      <split></split>
+      <div class="info">
+        <h1 class="title">商家信息</h1>
+        <ul>
+          <li class="info-item" v-for="info in seller.infos">{{info}}</li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -68,6 +79,16 @@
     props:{
       seller:{
         type:Object
+      }
+    },
+    data(){
+      return {
+        favorite:false
+      };
+    },
+    computed:{
+      favoriteText(){
+        return this.favorite? '已收藏' : '收藏';
       }
     },
     watch:{
@@ -111,6 +132,14 @@
             }
           })
         }
+      },
+      toggleFavorite(event){
+        if(!event._constructed){
+          return;
+        }
+        else{
+          this.favorite = !this.favorite;
+        }
       }
     },
     components: {
@@ -121,5 +150,6 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
+  @import "../../../static/css/font-awesome.min.css";
   @import "../../../static/css/seller.scss";
 </style>

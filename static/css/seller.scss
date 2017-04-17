@@ -60,6 +60,28 @@
           }
         }
       }
+      .favorite{
+        position: absolute;
+        width: 50px;
+        right: 11px;
+        top:18px;
+        text-align: center;
+        .fa-heart{
+          margin-bottom: 4px;
+          display: block;
+          color: #d4d6d9;
+          font-size: 24px;
+          line-height: 24px;
+          &.active{
+            color: rgb(240,20,20);
+          }
+        }
+        .text{
+          line-height: 10px;
+          font-size: 10px;
+          color: rgb(77,85,93);
+        }
+      }
     }
     .bulletin{
       padding: 18px 18px 0 18px;
@@ -117,6 +139,25 @@
               margin: 0;
             }
           }
+        }
+      }
+    }
+    .info{
+      padding: 18px 18px 0 18px;
+      color: rgb(7, 17, 27);
+      .title{
+        border-bottom: 1px solid rgba(7,17,27,0.1);
+        padding-bottom: 12px;
+        line-height: 14px;
+        font-size: 14px;
+      }
+      .info-item{
+        padding: 16px 12px;
+        line-height: 16px;
+        border-bottom: 1px solid rgba(7,17,27,0.1);
+        font-size: 12px;
+        &:last-child{
+          border-bottom: none;
         }
       }
     }
