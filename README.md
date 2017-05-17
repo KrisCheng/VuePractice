@@ -1,6 +1,6 @@
-# vue-practice
+# Vue.js practice
 
-> A Vue.js(2.0) project (Simulated from 饿了么).
+> A Vue.js(2.0) project (Simulated from 饿了么, just the front-end part, the data  is static).
 
 ## Build Setup
 
